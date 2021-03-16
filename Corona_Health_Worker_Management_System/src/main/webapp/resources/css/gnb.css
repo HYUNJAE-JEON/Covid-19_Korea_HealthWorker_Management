@@ -1,0 +1,81 @@
+@charset "EUC-KR";
+*{margin:0;padding:0;}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top : 5px;
+  margin-left : 0px;
+  margin-right : 0px;
+}
+
+.logo_title{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+}
+
+.logo_title h4 {
+  font-size: 15px;
+  color: #fff;
+}
+
+header nav {
+  display: inline-block;
+  vertical-align: middle;	
+}
+
+
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header li.icon {
+  flex-basis: 25%;
+}
+
+header {
+  background: #69696b;
+  padding: 0px;
+}
+
+
+header nav a {
+  display: inline-block;
+  text-align: center;
+  margin: 15px .25rem;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  background: #000000;
+}
+
+header nav p {
+  display: inline-block;
+  text-align: center;
+  margin: 15px .25rem;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+}
+
+header nav a:hover {
+  background: yellowgreen;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+

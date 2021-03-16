@@ -1,0 +1,42 @@
+@charset "EUC-KR";
+
+*{
+	margin:0;
+	padding:0;
+}
+
+li {
+	list-style: none;
+}
+
+#menu1{
+	background: #fff;
+}
+
+#menu1 ul{
+	width: 700px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#menu1 ul li{
+	float: left;
+	width: 30%;
+	height: 50px;
+	line-height: 50px;
+	text-align: left;
+	color: #fff;
+	background: #fff;
+}
+
+#menu1 ul li a{
+	display:block;
+	text-decoration:none;
+	color: #000000;
+}
+
+#menu1 ul li a:hover{
+	background: #138535;
+	color: #fff;
+}
+
