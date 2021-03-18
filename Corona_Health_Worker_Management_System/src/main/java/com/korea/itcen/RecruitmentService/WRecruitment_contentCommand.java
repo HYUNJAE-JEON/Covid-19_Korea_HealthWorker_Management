@@ -25,7 +25,7 @@ public class WRecruitment_contentCommand implements HService {
 		
 		String rId = request.getParameter("rId");
 		RecruitmentDAO recruitmentdao = new RecruitmentDAO();
-		RecruitmentDTO recruitmentdto = recruitmentdao.contentView(rId);
+		RecruitmentDTO recruitmentdto = recruitmentdao.Recruitment_ContentView(rId);
 		
 		RequestDAO requestdao = new RequestDAO();
 		int IRecruitment_post_number = recruitmentdto.getrId();

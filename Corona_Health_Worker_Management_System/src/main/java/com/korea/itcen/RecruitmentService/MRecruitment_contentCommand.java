@@ -29,7 +29,7 @@ public class MRecruitment_contentCommand implements HService {
 		String rId = request.getParameter("rId");
 		RecruitmentDAO recruitmentDao = new RecruitmentDAO();
 		RecruitmentDTO recruitmentDto = null;
-		recruitmentDto = recruitmentDao.contentView(rId);
+		recruitmentDto = recruitmentDao.Recruitment_ContentView(rId);
 		request.setAttribute("content_view", recruitmentDto);
 		
 		int applycount = 0;

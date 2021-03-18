@@ -30,7 +30,7 @@ public class MRecruitment_modifyCommand implements HService {
 
 		int result=0;
 		RecruitmentDAO recruitmentDao = new RecruitmentDAO();
-		result = recruitmentDao.modify(rId, rTitle, rContents, rRecruitment_num_of_worker);
+		result = recruitmentDao.Recruitment_modify(rId, rTitle, rContents, rRecruitment_num_of_worker);
 		
 		response.setContentType("text/html; charset=euc-kr");
 		PrintWriter writer = response.getWriter();

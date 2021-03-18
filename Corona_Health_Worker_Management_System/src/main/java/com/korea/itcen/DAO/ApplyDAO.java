@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.korea.itcen.DTO.ApplyDTO;
 @Repository
-public class ApplyDAO {
+public class ApplyDAO implements ApplyDAOInterface {
 
 	DataSource dataSource;
 	
@@ -295,6 +295,7 @@ public class ApplyDAO {
 		}
 		return count;
 }
+	
 	public int Apply_modify_status(String aStatus_of_dispatch_apply, String aMemberId, int aRecruitment_number) {
 		int result = 0;
 		Connection connection = null;

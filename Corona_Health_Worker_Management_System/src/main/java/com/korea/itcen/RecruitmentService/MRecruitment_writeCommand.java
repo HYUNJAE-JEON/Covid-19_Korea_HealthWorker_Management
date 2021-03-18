@@ -52,12 +52,12 @@ public class MRecruitment_writeCommand implements HService {
 			
 			int result = 0;
 			RecruitmentDAO recruitmentDao = new RecruitmentDAO();
-			result = recruitmentDao.write(rTitle, rUpload_date, rRecruitment_location_city, rRecruitment_location_district, rRecruitment_necessary_job, rRecruitment_num_of_worker, rContents);
+			result = recruitmentDao.Recruitment_write(rTitle, rUpload_date, rRecruitment_location_city, rRecruitment_location_district, rRecruitment_necessary_job, rRecruitment_num_of_worker, rContents);
 			
 			RequestDAO requestDao = new RequestDAO();
 			
 			int rId = 0;
-			rId = recruitmentDao.select_last_row();
+			rId = recruitmentDao.Recruitment_select_last_row();
 			System.out.println(rId);
 			int sum = 0;
 

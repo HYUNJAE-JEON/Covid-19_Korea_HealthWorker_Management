@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.korea.itcen.DTO.RecruitmentDTO;
 
-public class RecruitmentDAO {
+public class RecruitmentDAO implements RecruitmentDAOInterface {
 
 	DataSource dataSource;
 	
@@ -28,7 +28,7 @@ public class RecruitmentDAO {
 		}
 	}
 	//모집공고 작성
-	public int write(String rTitle, Date rUpload_date, String rRecruitment_location_city, String rRecruitment_location_district, String rRecruitment_necessary_job, int rRecruitment_num_of_worker, String rContents) {
+	public int Recruitment_write(String rTitle, Date rUpload_date, String rRecruitment_location_city, String rRecruitment_location_district, String rRecruitment_necessary_job, int rRecruitment_num_of_worker, String rContents) {
 		int result = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -58,7 +58,7 @@ public class RecruitmentDAO {
 		} return result;
 	}
 	//가장 최근에 입력받은 행 꺼내기
-	public int select_last_row() {
+	public int Recruitment_select_last_row() {
 		int rId = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -84,7 +84,7 @@ public class RecruitmentDAO {
 		} return rId;
 	}
 	//전체 리스트 추출해내는 것
-	public ArrayList<RecruitmentDTO> totallist(int startRow, int endRow) {
+	public ArrayList<RecruitmentDTO> Recruitment_totallist(int startRow, int endRow) {
 		
 		ArrayList<RecruitmentDTO> dtos = new ArrayList<RecruitmentDTO>();
 		Connection connection = null;
@@ -135,7 +135,7 @@ public class RecruitmentDAO {
 	
 	// 페이징 + 필터
 	
-	public ArrayList<RecruitmentDTO> list(int startRow, int endRow, String rRecruitment_location_city_opt, String rRecruitment_location_district_opt, String rRecruitment_necessary_job_opt) {
+	public ArrayList<RecruitmentDTO> Recruitment_list_paging_filter(int startRow, int endRow, String rRecruitment_location_city_opt, String rRecruitment_location_district_opt, String rRecruitment_necessary_job_opt) {
 		
 		ArrayList<RecruitmentDTO> dtos = new ArrayList<RecruitmentDTO>();
 		Connection connection = null;
@@ -145,38 +145,6 @@ public class RecruitmentDAO {
 		
 		try {
 			connection = dataSource.getConnection();
-			// 지역과 직무 검색 조건을 다 설정하지 않았을 때
-//			if (rRecruitment_location_city_opt.equals("N") && rRecruitment_location_district_opt.equals("N") && rRecruitment_necessary_job_opt.equals("N") ) {
-			
-				//rId, rTitle, rUpload_date, rHit, rStatus_of_recruitment, rRecruitment_location_city, rRecruitment_location_district, rRecruitment_necessary_job, rRecruitment_num_of_worker, rManager_department, rManager_call, rContents 
-//				String query = "select * from (select rownum rn, rId, rTitle, rUpload_date, rHit, rStatus_of_recruitment, rRecruitment_location_city, rRecruitment_location_district, rRecruitment_necessary_job, rRecruitment_num_of_worker, rManager_department, rManager_call, rContents from (select * from Recruitment order by rId desc)) where rn between ? and ?";
-				// bGroup desc 되어있기 때문에 게시글이 사용될 때마다 최근에 입력한 
-//				preparedStatement = connection.prepareStatement(query);
-//				preparedStatement.setInt(1, startRow);
-//				preparedStatement.setInt(2, endRow);
-//				resultSet = preparedStatement.executeQuery();
-				
-//				while (resultSet.next()) {
-//					int rId = resultSet.getInt("rId");
-//					String rTitle = resultSet.getString("rTitle");
-//					Timestamp rUpload_date = resultSet.getTimestamp("rUpload_date");
-//					int rHit = resultSet.getInt("rHit");
-//					String rStatus_of_recruitment = resultSet.getString("rStatus_of_recruitment");
-//					String rRecruitment_location_city = resultSet.getString("rRecruitment_location_city");
-//					String rRecruitment_location_district = resultSet.getString("rRecruitment_location_district");
-//					String rRecruitment_necessary_job = resultSet.getString("rRecruitment_necessary_job");
-//					int rRecruitment_num_of_worker = resultSet.getInt("rRecruitment_num_of_worker");
-//					String rManager_department = resultSet.getString("rManager_department");
-//					String rManager_call = resultSet.getString("rManager_call");
-//					String rContents = resultSet.getString("rContents");
-//					
-//					RecruitmentDTO recruitmentDto = new RecruitmentDTO(rId, rTitle, rUpload_date, rHit, rStatus_of_recruitment, rRecruitment_location_city, rRecruitment_location_district, rRecruitment_necessary_job, rRecruitment_num_of_worker, rManager_department, rManager_call, rContents);
-//					dtos.add(recruitmentDto);
-//				
-//				}	
-			
-//			}
-			// 지역(광역시, 도)는 선택하고 구,군,시는 선택하지 않았으며, 직무도 선택하지 않았을 때
 			if(!rRecruitment_location_city_opt.equals("N") && rRecruitment_location_district_opt.equals("N") && rRecruitment_necessary_job_opt.equals("N")) {
 				String query = "select * from (select rownum rn, rId, rTitle, rUpload_date, rHit, rStatus_of_recruitment, rRecruitment_location_city, rRecruitment_location_district, rRecruitment_necessary_job, rRecruitment_num_of_worker, rManager_department, rManager_call, rContents from (select * from Recruitment where rRecruitment_location_city = ? order by rId desc)) where rn between ? and ?";
 				preparedStatement = connection.prepareStatement(query);
@@ -332,7 +300,7 @@ public class RecruitmentDAO {
 	}
 	
 	// 총 레코드 수 구하는 로직
-	public int getCount() {
+	public int Recruitment_Count() {
 		int count = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -365,7 +333,7 @@ public class RecruitmentDAO {
 
 	
 	// 검색 후 페이지에 나타낼 총 레코드 수 계싼
-	public int getfCount(String rRecruitment_location_city_opt, String rRecruitment_location_district_opt, String rRecruitment_necessary_job_opt) {
+	public int Recruitment_Count_Paging_filter(String rRecruitment_location_city_opt, String rRecruitment_location_district_opt, String rRecruitment_necessary_job_opt) {
 		int fCount = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -374,13 +342,6 @@ public class RecruitmentDAO {
 			connection = dataSource.getConnection();
 			// 지역과 직무 검색 조건을 다 설정하지 않았을 때
 			if (rRecruitment_location_city_opt.equals("N") && rRecruitment_location_district_opt.equals("N") && rRecruitment_necessary_job_opt.equals("N") ) {
-//				String query = "select count(*) from Recruitment";
-//				preparedStatement = connection.prepareStatement(query);
-//				resultSet = preparedStatement.executeQuery();
-//				
-//				if(resultSet.next()) {
-//					fCount = resultSet.getInt(1);
-//				}
 				fCount = 0;
 			} 
 			// 지역(광역시, 도)는 선택하고 구,군,시는 선택하지 않았으며, 직무도 선택하지 않았을 
@@ -460,8 +421,8 @@ public class RecruitmentDAO {
 	
 	
 	
-	public RecruitmentDTO contentView(String strID) {
-		upHit(strID);
+	public RecruitmentDTO Recruitment_ContentView(String StrId) {
+		Recruitment_upHit(StrId);
 		
 		RecruitmentDTO recruitmentdto = null;
 		Connection connection = null;
@@ -473,7 +434,7 @@ public class RecruitmentDAO {
 			
 			String query = "select * from recruitment where rId = ?";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setInt(1,  Integer.parseInt(strID));
+			preparedStatement.setInt(1,  Integer.parseInt(StrId));
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
@@ -550,7 +511,7 @@ public class RecruitmentDAO {
 		
 	}
 	
-	public int end(int rId) {
+	public int Recruitment_end(int rId) {
 		int rn = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -576,7 +537,7 @@ public class RecruitmentDAO {
 	}
 	
 	
-	public int modify(int rId, String rTitle, String rContents, int rRecruitment_num_of_worker) {
+	public int Recruitment_modify(int rId, String rTitle, String rContents, int rRecruitment_num_of_worker) {
 		
 		int rn = 0;
 		Connection connection = null;
@@ -606,7 +567,7 @@ public class RecruitmentDAO {
 		
 	}
 	
-	public int delete(int rId) {
+	public int Recruitment_delete(int rId) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		int rn = 0;
@@ -630,7 +591,7 @@ public class RecruitmentDAO {
 	}
 	
 
-	private void upHit (String rId) {
+	public void Recruitment_upHit (String rId) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		

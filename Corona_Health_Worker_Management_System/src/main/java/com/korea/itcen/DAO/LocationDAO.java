@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.korea.itcen.DTO.LocationDTO;
 
-public class LocationDAO {
+public class LocationDAO implements LocationDAOInterface {
 	
 	DataSource dataSource;
 		

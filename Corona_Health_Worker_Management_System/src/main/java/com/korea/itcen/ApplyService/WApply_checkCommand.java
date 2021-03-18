@@ -39,7 +39,7 @@ public class WApply_checkCommand implements HService {
 		
 		int result = 0;
 		RecruitmentDAO recruitmentdao = new RecruitmentDAO();
-		RecruitmentDTO recruitmentdto = recruitmentdao.contentView(rId);
+		RecruitmentDTO recruitmentdto = recruitmentdao.Recruitment_ContentView(rId);
 		ApplyDAO applyDao = new ApplyDAO();
 		
 		RequestDAO requestdao = new RequestDAO();

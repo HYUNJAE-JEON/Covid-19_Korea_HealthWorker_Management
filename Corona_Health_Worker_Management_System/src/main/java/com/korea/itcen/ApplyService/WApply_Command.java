@@ -93,7 +93,7 @@ public class WApply_Command implements HService {
 		
 //		String rId = request.getParameter("rId");
 //		RecruitmentDAO recruitmentdao = new RecruitmentDAO();
-//		RecruitmentDTO recruitmentdto = recruitmentdao.contentView(rId);
+//		RecruitmentDTO recruitmentdto = recruitmentdao.Recruitment_ContentView(rId);
 //		request.setAttribute("content_view", recruitmentdto);
 //		
 //		RequestDAO requestdao = new RequestDAO();

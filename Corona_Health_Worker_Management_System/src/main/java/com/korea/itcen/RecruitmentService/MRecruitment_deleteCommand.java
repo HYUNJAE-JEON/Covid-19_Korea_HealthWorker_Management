@@ -31,7 +31,7 @@ public class MRecruitment_deleteCommand implements HService {
 		RecruitmentDAO recruitmentDao = new RecruitmentDAO();
 		RequestDAO requestDao = new RequestDAO();
 		result2 = requestDao.Request_recruitment_delete(rId);
-		result = recruitmentDao.delete(rId);
+		result = recruitmentDao.Recruitment_delete(rId);
 		
 		response.setContentType("text/html; charset=euc-kr");
 		PrintWriter writer = response.getWriter();

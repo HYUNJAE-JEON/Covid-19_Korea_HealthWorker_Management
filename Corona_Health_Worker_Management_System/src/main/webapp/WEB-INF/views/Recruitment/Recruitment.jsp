@@ -59,15 +59,15 @@
  	int endRow = currentPage * pageSize;
  	int count = 0;
  	int fCount = 0;
- 	fCount = recruitmentDao.getfCount(rRecruitment_location_city_opt, rRecruitment_location_district_opt, rRecruitment_necessary_job_opt);
- 	count = recruitmentDao.getCount();
+ 	fCount = recruitmentDao.Recruitment_Count_Paging_filter(rRecruitment_location_city_opt, rRecruitment_location_district_opt, rRecruitment_necessary_job_opt);
+ 	count = recruitmentDao.Recruitment_Count();
  	if(count > 0 && (("N").equals(rRecruitment_location_city_opt)) && (("N").equals(rRecruitment_location_district_opt)) && (("N").equals(rRecruitment_necessary_job_opt))) {
- 		recruitmentDto = recruitmentDao.totallist(startRow, endRow);
+ 		recruitmentDto = recruitmentDao.Recruitment_totallist(startRow, endRow);
  	}
  	if(fCount > 0) {
- 		frecruitmentDto = recruitmentDao.list(startRow, endRow, rRecruitment_location_city_opt, rRecruitment_location_district_opt, rRecruitment_necessary_job_opt);
+ 		frecruitmentDto = recruitmentDao.Recruitment_list_paging_filter(startRow, endRow, rRecruitment_location_city_opt, rRecruitment_location_district_opt, rRecruitment_necessary_job_opt);
  	}
- 	request.setAttribute("list", recruitmentDto);
+ 	request.setAttribute("Recruitment_list_paging_filter", recruitmentDto);
  	request.setAttribute("flist", frecruitmentDto);
 	city_selected = locationDao.locationDB_Call_City();
 	request.setAttribute("city_list", city_selected);
@@ -80,7 +80,7 @@
 	System.out.println(rRecruitment_necessary_job_opt);
 
 %>
-<!-- 여기까지 list 불러오기 -->
+<!-- 여기까지 Recruitment_list_paging_filter 불러오기 -->
 <!-- 아래는 팝업창에서 값 받아오기 -->
  
 

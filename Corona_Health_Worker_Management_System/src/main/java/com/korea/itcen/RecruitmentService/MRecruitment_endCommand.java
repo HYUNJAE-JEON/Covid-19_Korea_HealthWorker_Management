@@ -30,7 +30,7 @@ public class MRecruitment_endCommand implements HService {
 		RecruitmentDAO recruitmentDao = new RecruitmentDAO();
 		RequestDAO requestDao = new RequestDAO();
 		
-		success_recru = recruitmentDao.end(rId);
+		success_recru = recruitmentDao.Recruitment_end(rId);
 		success_reque = requestDao.Request_recruitment_end(rId);
 		PrintWriter writer = response.getWriter();
 		if (success_recru == 1) {

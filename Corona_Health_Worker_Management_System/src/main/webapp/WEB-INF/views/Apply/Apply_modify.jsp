@@ -159,6 +159,21 @@ table.type10 td {
 }
 
 </style>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+	$(document).ready(function(){
+		$("#aHope_work_period_end").on("change", function(){
+			var $aHope_work_period_start = $('#aHope_work_period_start')
+			var $aHope_work_period_end = $('#aHope_work_period_end')
+			if ($aHope_work_period_end.val() < $aHope_work_period_start.val()){
+				alert("시작날짜 이전 날짜는 선택할 수 없습니다.");
+				$aHope_work_period_end.val($aHope_work_period_start.val());
+			}
+		})
+	});
+</script>
+
 </head>
 <body>
 <%@ include file="gnb_v2.jsp" %>
