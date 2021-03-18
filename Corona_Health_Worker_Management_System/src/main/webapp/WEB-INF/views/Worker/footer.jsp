@@ -77,7 +77,7 @@ address{
 		</ul>
 		
 		<p class="call"><a href="tel:129">보건복지부 상담센터: 129</a></p>
-		<address>세종특별자치시 도움4로 13 보건복지부 (정부세종청사 10동)</address>
+		<address>세종특별자치시 도움4로 13 보건복지부 (정부세종청사 10동) </address>
 		<p class="copy">COPYRIGHT(c) 2021 itcen all rights reserved.</p>
 		</div>
 		<div class="footerLogo">
