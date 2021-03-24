@@ -10,4 +10,6 @@ public interface LocationDAOInterface {
 	public ArrayList<LocationDTO> locationDB_Call_City();
 	// 각 시, 도에 맞는 구,시 호출 
 	public ArrayList<LocationDTO> locationDB_Call_District(String location_city_selected);
+	
+	public ArrayList<String> locationDB_call_District(String location_city_selected);
 }

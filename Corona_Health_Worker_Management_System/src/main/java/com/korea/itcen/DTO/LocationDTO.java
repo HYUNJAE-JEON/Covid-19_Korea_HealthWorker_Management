@@ -2,10 +2,7 @@ package com.korea.itcen.DTO;
 
 public class LocationDTO {
 
-	public LocationDTO() {
-		
-	}
-	
+	public LocationDTO() {}
 	
 	public String getLocation_city() {
 		return Location_city;
